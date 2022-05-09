@@ -97,7 +97,7 @@ jobs:
         sed -i 's/%D %V, %C/openwrt May by kenzo/g' package/base-files/files/etc/banner
         cp -f feeds/smpackage/diy/index_x86.htm package/lean/autocore/files/x86/index.htm
         patch -p1 < "feeds/smpackage/diy/patches/prereq-build_new.patch"
-        cp -f feeds/smpackage/diy/${{matrix.target}}.config .config && make defconfig
+        cp -f feeds/smpackage/diy/${{matrix.target}}.config .config
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
