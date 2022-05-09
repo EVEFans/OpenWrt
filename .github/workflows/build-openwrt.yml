@@ -88,6 +88,8 @@ jobs:
       env:
         CONFIG_FILE: '${{matrix.target}}.config'
       run: |
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x ./customize.sh && ./customize.sh
         cd openwrt
         cp -f feeds/smpackage/diy/default-settings package/lean/default-settings/files/zzz-default-settings
         sed -i 's/v$date1/May/g' package/lean/default-settings/files/zzz-default-settings
