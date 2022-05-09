@@ -83,6 +83,15 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        cd
+        cd openwrt
+        cp -f feeds/smpackage/diy/default-settings package/lean/default-settings/files/zzz-default-settings
+        sed -i 's/v$date1/May/g' package/lean/default-settings/files/zzz-default-settings
+        cp -f feeds/smpackage/diy/banner package/base-files/files/etc/banner
+        sed -i 's/%D %V, %C/openwrt May by kenzo/g' package/base-files/files/etc/banner
+        cp -f feeds/smpackage/diy/index_x86.htm package/lean/autocore/files/x86/index.htm
+        patch -p1 < "feeds/smpackage/diy/patches/prereq-build_new.patch"
+        cp -f feeds/smpackage/diy/${{matrix.target}}.config .config && make defconfig
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
