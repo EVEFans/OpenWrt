@@ -68,10 +68,11 @@ jobs:
         cd openwrt
         ./scripts/feeds clean
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        git pull
 
-    - name: Update feeds
+    - name: Update feeds(更新feeds插件)
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: Install feeds
+    - name: Install feeds(安装feeds插件)
       run: cd openwrt && ./scripts/feeds install -a
     
