@@ -13,7 +13,7 @@ name: OpenWrt_x86
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
+    #inputs:
       #ssh:
         #description: 'SSH connection to Actions'
         #required: false
