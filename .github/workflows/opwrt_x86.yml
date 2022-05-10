@@ -13,6 +13,8 @@ name: openwrt_vm-x86
 on:
   repository_dispatch:
   workflow_dispatch:
+  release:
+    types: [published]
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -49,19 +51,19 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: Clone source code
+    - name: Clone source code(获取openwrt源码)
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: Load custom feeds
+    - name: Load custom feeds(加载自定义feeds源)
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        #./scripts/feeds clean
+        ./scripts/feeds clean
         $GITHUB_WORKSPACE/$DIY_P1_SH
         git pull
         
@@ -71,7 +73,7 @@ jobs:
     - name: Install feeds(安装feeds库)
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Load custom configuration
+    - name: Load custom configuration(加载自定义config文件)
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
