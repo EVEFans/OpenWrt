@@ -112,7 +112,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_bin${{ env.FILE_DATE }}
+        name: openwrt-x86-bin${{ env.FILE_DATE }}
         path: openwrt/bin
 
     - name: Organize files(整理文件)
