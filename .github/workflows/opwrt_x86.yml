@@ -138,7 +138,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.FIRMWARE }}${{ env.FILE_DATE }}
+        name: openwrt-x86-x64${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag(创建发布标签)
