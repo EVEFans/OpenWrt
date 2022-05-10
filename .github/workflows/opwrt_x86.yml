@@ -38,7 +38,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
-    - name: Initialization environment
+    - name: Initialization environment(更新系统并安装编译依赖)
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
