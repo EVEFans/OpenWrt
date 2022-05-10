@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: openwrt_vm-x86
+name: x86
 
 on:
   repository_dispatch:
@@ -31,6 +31,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    if: github.event.repository.owner.id == github.event.sender.id
+    
+    name: Build ${{matrix.target}}
 
     steps:
     - name: Checkout
