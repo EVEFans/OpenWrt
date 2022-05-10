@@ -122,7 +122,10 @@ jobs:
         cp openwrt/build_dir/target-*/linux-*/linux-*/.config ./firmware/${{matrix.target}}_kernel.config
         cd firmware
         echo "v${{ env.DATE }}" > version.txt
-        md5=$((md5sum *squashfs-sysupgrade* || md5sum *squashfs-combined-efi*) | awk '{print $1}') 2>/dev/null
+        md5=$((md5sum *squashfs-combined-efi*) | awk '{print $1}') 2>/dev/null
+        echo $md5 >> version.txt
+        rename -v "s/^openwrt/openwrt/" * || true
+        rename -v "s/friendlyarm_//" *gz || true
         echo $md5 >> version.txt
         cd openwrt/bin/targets/*/*
         rm -rf packages
