@@ -36,7 +36,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
-    - name: Initialization environment(更新系统并安装编译依赖)
+    - name: Initialization environment(初始化编译环境)
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
@@ -112,7 +112,7 @@ jobs:
         name: OpenWrt_bin${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: Organize files(整理编译好的固件)
+    - name: Organize files(整理文件)
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
