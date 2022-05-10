@@ -101,7 +101,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "DATE=$(date +"%Y%m%d")" >> $GITHUB_ENV
 
-    - name: Check space usage
+    - name: Check space usage(检查磁盘空间)
       if: (!cancelled())
       run: df -hT
 
@@ -112,7 +112,7 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: Organize files
+    - name: Organize files(整理编译好的固件)
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
