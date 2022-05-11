@@ -163,7 +163,7 @@ jobs:
       with:
         files: "${{ env.FIRMWARE }}/*"
         name: ${{matrix.target}} $(date +"%Y.%m.%d.%H%M")
-        tag_name: ${{ env.date }}_${{matrix.target}}
+        tag_name: openwrt-x86-x64-${{ env.DATE }}
         body_path: release.txt
 
     - name: Delete workflow runs
