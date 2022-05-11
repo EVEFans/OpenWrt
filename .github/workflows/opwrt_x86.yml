@@ -33,7 +33,11 @@ jobs:
     runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
    
-    name: Build Openwrt
+    name: Build ${{matrix.target}}
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86-64-generic]
 
     steps:
     - name: Checkout
@@ -105,6 +109,7 @@ jobs:
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=-$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=-$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "DATE=$(date +"%Y%m%d")" >> $GITHUB_ENV
+        echo "VERSION=$(date +"%y.%m.%d.%H%M)" >> $GITHUB_ENV
 
     - name: Check space usage(检查磁盘空间)
       if: (!cancelled())
@@ -122,15 +127,15 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         mkdir firmware
-        mv -f openwrt/bin/targets/*/*/{*generic-squashfs*,*combined*} ./firmware/ 2>/dev/null || true
+        mv -f openwrt/bin/targets/*/*/{*generic-squashfs*,*generic-ext4*,*sha256sums*} ./firmware/ 2>/dev/null || true
         cp openwrt/.config  ./firmware/${{matrix.target}}.config
         cp openwrt/build_dir/target-*/linux-*/linux-*/.config ./firmware/${{matrix.target}}_kernel.config
         cd firmware
-        echo "v${{ env.DATE }}" > version.txt
-        md5=$((md5sum *generic-squashfs*) | awk '{print $1}') 2>/dev/null
-        echo $md5 >> version.txt
+        #echo "v${{ env.DATE }}" > version.txt
+        #md5=$((md5sum *generic-squashfs*) | awk '{print $1}') 2>/dev/null
+        #echo $md5 >> version.txt
         #rename -v "s/friendlyarm_//" *gz || true
-        echo $md5 >> version.txt
+        #echo $md5 >> version.txt
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
         
@@ -160,8 +165,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
         files: "${{ env.FIRMWARE }}/*"
-        name: openwrt${{matrix.target}}$(date +"%Y.%m.%d.%H%M")
-        tag_name: openwrt-x86-x64-${{ env.DATE }}
+        name: Openwrt-${{matrix.target}}-${{env.VERSION}}
+        tag_name: openwrt-${{matrix.target}}-${{ env.DATE }}
         body_path: release.txt
 
     - name: Delete workflow runs
