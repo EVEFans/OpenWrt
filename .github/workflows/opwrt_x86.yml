@@ -32,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
-    
+   
     name: Build ${{matrix.target}}
 
     steps:
@@ -122,12 +122,12 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         mkdir firmware
-        mv -f openwrt/bin/targets/*/*/{*generic*,*combined*,*sysupgrade*} ./firmware/ 2>/dev/null || true
+        mv -f openwrt/bin/targets/*/*/{*generic-squashfs*,*combined*} ./firmware/ 2>/dev/null || true
         cp openwrt/.config  ./firmware/${{matrix.target}}.config
         cp openwrt/build_dir/target-*/linux-*/linux-*/.config ./firmware/${{matrix.target}}_kernel.config
         cd firmware
         echo "v${{ env.DATE }}" > version.txt
-        md5=$((md5sum *generic*) | awk '{print $1}') 2>/dev/null
+        md5=$((md5sum *generic-squashfs*) | awk '{print $1}') 2>/dev/null
         echo $md5 >> version.txt
         #rename -v "s/friendlyarm_//" *gz || true
         echo $md5 >> version.txt
@@ -160,7 +160,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
         files: "${{ env.FIRMWARE }}/*"
-        name: ${{matrix.target}} $(date +"%Y.%m.%d.%H%M")
+        name: openwrt${{matrix.target}}$(date +"%Y.%m.%d.%H%M")
         tag_name: openwrt-x86-x64-${{ env.DATE }}
         body_path: release.txt
 
