@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Lean]
+        target: [Lean-x86]
 
     steps:
     - name: Checkout
@@ -80,7 +80,7 @@ jobs:
     - name: Install feeds(安装feeds库)
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Load custom configuration(加载自定义config文件)
+    - name: Load custom configuration(载入自定义config)
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
@@ -147,10 +147,10 @@ jobs:
       run: |
         echo -e "源码来源\n" >> release.txt
         echo -e "- [Lean's OpenWrt](https://github.com/coolsnowwolf/openwrt)\n" >> release.txt
-        echo -e "- [Kenzok8's Package]https://github.com/kenzok8/small-package)\n" >> release.txt
+        echo -e "- [Kenzok8's Package](https://github.com/kenzok8/small-package)\n" >> release.txt
+        echo -e "- [P3TERX's Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)\n" >> release.txt
         echo -e "本次固件编译于$(date +"%Y.%m.%d")\n" >> release.txt
         #echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
-        #echo "::set-output name=release_tag::本次固件编译于$(date +"%Y.%m.%d")"
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
