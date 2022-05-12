@@ -9,7 +9,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Lean CI
+name: Leanx-x86
 
 on:
   repository_dispatch:
