@@ -139,8 +139,9 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo -e "学习使用Github Action编译openwrt\n" >> release.txt
-        echo -e "该固件是基于Lean编译\n" >> release.txt
+        echo -e "源码来源\n" >> release.txt
+        echo -e "- [Lean's OpenWrt](https://github.com/coolsnowwolf/openwrt)\n" >> release.txt
+        echo -e "- [Kenzok8's Package]https://github.com/kenzok8/small-package)\n" >> release.txt
         echo -e "本次固件编译于$(date +"%Y.%m.%d")\n" >> release.txt
         #echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
         #echo "::set-output name=release_tag::本次固件编译于$(date +"%Y.%m.%d")"
