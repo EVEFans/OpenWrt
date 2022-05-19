@@ -76,6 +76,8 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds update -a
+        sleep 1m
+        ./scripts/feeds update -a
 
     - name: Install feeds(安装feeds库)
       run: cd openwrt && ./scripts/feeds install -a
