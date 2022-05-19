@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [ImmortalWrt_21.02-x86]
+        target: [ImmortalWrt_21.02-ARMv8]
 
     steps:
     - name: Checkout
