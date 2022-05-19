@@ -55,12 +55,14 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+
     - name: Clone source code(获取openwrt源码)
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
     - name: Load custom feeds(加载自定义feeds源)
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -68,7 +70,7 @@ jobs:
         cd openwrt
         ./scripts/feeds clean
         $GITHUB_WORKSPACE/$DIY_P1_SH
-        git pull
+
     - name: Update feeds(更新feeds库)
       run: |
         cd openwrt
@@ -84,6 +86,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+
     - name: Download package(下载dl库)
       id: package
       run: |
@@ -94,6 +97,7 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
     - name: Compile the firmware(编译固件)
       id: compile
       run: |
@@ -106,6 +110,7 @@ jobs:
         echo "FILE_DATE=-$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "DATE=$(date +"%Y%m%d")" >> $GITHUB_ENV
         echo "VERSION=$(date +"%y.%m.%d.%H%M")" >> $GITHUB_ENV
+
     - name: Check space usage(检查磁盘空间)
       if: (!cancelled())
       run: df -hT
@@ -129,6 +134,7 @@ jobs:
         cd firmware
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
@@ -141,8 +147,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         echo -e "源码来源\n" >> release.txt
-        echo -e "- [Immortalwrt OpenWrt](https://github.com/immortalwrt/immortalwrt)\n" >> release.txt
-        echo -e "- [Kenzok8's Package](https://github.com/kenzok8/small-package)\n" >> release.txt
+        echo -e "- [Lienol's OpenWrt](https://github.com/Lienol/openwrt)\n" >> release.txt
         echo -e "- [P3TERX's OpenWrt CI](https://github.com/P3TERX/Actions-OpenWrt)\n" >> release.txt
         echo -e "本次固件编译于$(date +"%Y.%m.%d")\n" >> release.txt
         #echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
@@ -150,6 +155,7 @@ jobs:
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "::set-output name=status::success"
+
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
