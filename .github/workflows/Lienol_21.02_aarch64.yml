@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Lienol-19.07-aarch64
+name: Lienol-21.02-aarch64
 
 on:
   repository_dispatch:
@@ -16,7 +16,7 @@ on:
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: 1907
+  REPO_BRANCH: 21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/ImmortalWrt/21.02_ARMv8.config
   DIY_P1_SH: config/ImmortalWrt/feeds_libray.sh
@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Lienol-19.07-aarch64]
+        target: [Lienol-21.02-aarch64]
 
     steps:
     - name: Checkout
