@@ -18,7 +18,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/ImmortalWrt/21.02_arm64.config
+  CONFIG_FILE: config/ImmortalWrt/21.02_ARMv8.config
   DIY_P1_SH: config/ImmortalWrt/feeds_libray.sh
   DIY_P2_SH: config/ImmortalWrt/DIY_config.sh
   UPLOAD_BIN_DIR: false
