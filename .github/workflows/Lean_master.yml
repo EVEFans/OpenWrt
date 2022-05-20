@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Lienol-21.02-aarch64
+name: Lean-master
 
 on:
   repository_dispatch:
@@ -18,9 +18,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/Lienol_21.02/aarch64.config
-  DIY_P1_SH: config/Lienol_21.02/feeds_libray.sh
-  DIY_P2_SH: config/Lienol_21.02/DIY_config.sh
+  CONFIG_FILE: config/Lean_master/aarch64.config
+  DIY_P1_SH: config/Lean_master/feeds_libray.sh
+  DIY_P2_SH: config/Lean_master/DIY_config.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Lienol-21.02-aarch64]
+        target: [aarch64]
 
     steps:
     - name: Checkout
@@ -93,7 +93,6 @@ jobs:
       id: package
       run: |
         cd openwrt
-        sleep 1m
         make defconfig
         ./scripts/diffconfig.sh > diffconfig
         make download -j8
@@ -149,7 +148,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         echo -e "源码来源\n" >> release.txt
-        echo -e "- [Lienol's OpenWrt](https://github.com/Lienol/openwrt)\n" >> release.txt
+        echo -e "- [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)\n" >> release.txt
         echo -e "- [P3TERX's OpenWrt CI](https://github.com/P3TERX/Actions-OpenWrt)\n" >> release.txt
         echo -e "本次固件编译于$(date +"%Y.%m.%d")\n" >> release.txt
         #echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
