@@ -13,5 +13,11 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generate
 
-# Add luci-app-amlogic
+# Add (晶晨宝盒)luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+
+# 家长管理插件，支持游戏、视频、聊天、下载等app过滤
+git clone https://github.com/destan19/OpenAppFilter.git package/oaf
+
+# 京东签到插件
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/jd
