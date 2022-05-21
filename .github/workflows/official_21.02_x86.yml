@@ -18,7 +18,6 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
-  #CONFIG_FILE: config/official_21.02/aarch64.config
   DIY_P1_SH: config/official_21.02/feeds_libray.sh
   DIY_P2_SH: config/official_21.02/DIY_config.sh
   UPLOAD_BIN_DIR: false
@@ -37,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [aarch64]
+        target: [x86]
 
     steps:
     - name: Checkout
