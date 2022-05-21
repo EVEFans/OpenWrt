@@ -16,6 +16,3 @@
 # Add a feed source
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 # echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-
-# Kenzok8开发及收集常用OpenWrt软件包源码合集，通用版luci适合18.06与19.07
-echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
