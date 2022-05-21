@@ -18,9 +18,9 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/ImmortalWrt/21.02_ARMv8.config
-  DIY_P1_SH: config/ImmortalWrt/feeds_libray.sh
-  DIY_P2_SH: config/ImmortalWrt/DIY_config.sh
+  #CONFIG_FILE: config/official_21.02/aarch64.config
+  DIY_P1_SH: config/official_21.02/feeds_libray.sh
+  DIY_P2_SH: config/official_21.02/DIY_config.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [official-21.02-ARMv8]
+        target: [aarch64]
 
     steps:
     - name: Checkout
@@ -73,16 +73,14 @@ jobs:
         git pull
 
     - name: Update feeds(更新feeds库)
-      run: |
-        cd openwrt
-        ./scripts/feeds update -a
-        sleep 1m
-        ./scripts/feeds update -a
+      run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds(安装feeds库)
       run: cd openwrt && ./scripts/feeds install -a
 
     - name: Load custom configuration(载入自定义config)
+      env:
+        CONFIG_FILE: config/official_21.02/${{matrix.target}}.config
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
