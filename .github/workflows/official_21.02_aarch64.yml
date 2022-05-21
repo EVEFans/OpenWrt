@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [x86;aarch64]
+        target: [aarch64]
 
     steps:
     - name: Checkout
