@@ -18,7 +18,6 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  #CONFIG_FILE: config/Lean_master/${{matrix.target}}.config
   DIY_P1_SH: config/Lean_master/feeds_libray.sh
   DIY_P2_SH: config/Lean_master/DIY_config.sh
   UPLOAD_BIN_DIR: false
