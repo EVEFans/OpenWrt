@@ -19,7 +19,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   DIY_P1_SH: config/Lean_master/feeds_libray.sh
-  DIY_P2_SH: config/Lean_master/DIY_config.sh
+  DIY_P2_SH: config/Lean_master/DIY_config_aarch64.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
