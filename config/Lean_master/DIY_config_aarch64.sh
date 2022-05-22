@@ -62,7 +62,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2t
 
 # 主题皮肤
 svn co https://github.com/solidus1983/luci-theme-opentomato/trunk/luci/themes/luci-theme-opentomato package/luci-theme-opentomato
-svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-theme-atmaterial_new package/other/atmaterial
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-theme-atmaterial_new package/other/atmaterial
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
@@ -74,7 +74,7 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-ope
 
 # 添加smartdns
 # svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
 # 修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
