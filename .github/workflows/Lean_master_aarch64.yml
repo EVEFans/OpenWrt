@@ -128,7 +128,7 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         mkdir firmware
-        mv -f openwrt/bin/targets/*/*/{*default*,*generic*,*sha256sums*} ./firmware/ 2>/dev/null || true
+        mv -f openwrt/bin/targets/*/*/{*default*,*generic*,*config*,*sha256sums*} ./firmware/ 2>/dev/null || true
         cp openwrt/.config  ./firmware/${{matrix.target}}.config
         cp openwrt/build_dir/target-*/linux-*/linux-*/.config ./firmware/${{matrix.target}}_kernel.config
         cd firmware
