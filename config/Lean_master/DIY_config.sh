@@ -15,3 +15,12 @@
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+
+# Add luci-app-vssr
+git clone https://github.com/jerrykuku/luci-app-vssr.git  package/other/vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git  package/other/Maxminddb
+git clone https://github.com/fw876/helloworld  package/other/helloworld
+git clone https://github.com/xiaorouji/openwrt-passwall package/other/passwall
+
+# Add luci-app-oaf
+git clone https://github.com/destan19/OpenAppFilter.git package/other/oaf
