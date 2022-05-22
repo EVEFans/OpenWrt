@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.10.5/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generate
 
 # 移除冲突插件
 rm -rf package/lean/luci-theme-argon
