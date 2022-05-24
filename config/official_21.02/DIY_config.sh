@@ -29,7 +29,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/depen
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/depend/dnsforwarder
 svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/depend/shortcut-fe
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/depend/dnsproxy
-# 提出缺少ucode
+# 提示缺少ucode
 # git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic package/other/luci-app-unblockneteasemusic
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/other/luci-app-vssr
