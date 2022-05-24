@@ -13,11 +13,31 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generate
 
-# Add (晶晨宝盒)luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+# Add 
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adbyby-plus package/other/luci-app-adbyby-plus
+svn co https://github.com/kiddin9/openwrt-packages/trunk/adbyby package/depend/adbyby
+git clone https://github.com/kongfl888/luci-app-adguardhome.git package/other/luci-app-adguardhome
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/other/luci-app-amlogic
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-arpbind package/other/luci-app-arpbind
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autoreboot package/other/luci-app-autoreboot
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman package/other/luci-app-diskman
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/other/luci-app-jd-dailybonus
+git clone https://github.com/destan19/OpenAppFilter.git package/other/luci-app-oaf
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ramfree package/other/luci-app-ramfree
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc package/other/luci-app-turboacc
+svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/depend/pdnsd-alt
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/depend/dnsforwarder
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/depend/shortcut-fe
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/other/luci-app-vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/other/Maxminddb
+git clone https://github.com/fw876/helloworld  package/other/helloworld
+git clone https://github.com/xiaorouji/openwrt-passwall package/other/passwall
+svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/depend/redsocks2
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-wrtbwmon package/other/luci-app-wrtbwmon
+svn co https://github.com/kiddin9/openwrt-packages/trunk/wrtbwmon package/depend/wrtbwmon
+git clone https://github.com/kiddin9/luci-theme-edge package/other/luci-theme-edge
+git clone https://github.com/kenzok8/luci-theme-ifit.git package/other/luci-theme-ifit
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/other/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/other/luci-app-argon-config
 
-# 家长管理插件，支持游戏、视频、聊天、下载等app过滤
-git clone https://github.com/destan19/OpenAppFilter.git package/oaf
-
-# 京东签到插件
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/jd
