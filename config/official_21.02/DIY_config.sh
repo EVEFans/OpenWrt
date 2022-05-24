@@ -28,6 +28,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc packa
 svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/depend/pdnsd-alt
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/depend/dnsforwarder
 svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/depend/shortcut-fe
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/depend/dnsproxy
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/other/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/other/Maxminddb
