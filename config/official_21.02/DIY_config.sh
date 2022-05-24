@@ -29,7 +29,9 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/depen
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/depend/dnsforwarder
 svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/depend/shortcut-fe
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/depend/dnsproxy
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
+# 提出缺少ucode
+# git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic package/other/luci-app-unblockneteasemusic
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/other/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/other/Maxminddb
 git clone https://github.com/fw876/helloworld  package/other/helloworld
@@ -42,3 +44,5 @@ git clone https://github.com/kenzok8/luci-theme-ifit.git package/other/luci-them
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/other/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/other/luci-app-argon-config
 
+./scripts/feeds update -a
+./scripts/feeds install -a
