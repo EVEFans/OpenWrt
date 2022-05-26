@@ -82,14 +82,12 @@ jobs:
     - name: Load custom configuration(载入自定义config)
       env:
         CONFIG_FILE: config/Lean_master/${{matrix.target}}.config
-        HOME_PATH: $PWD
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        #echo "PATH=$PWD" >> $GITHUB_ENV
 
     - name: Download package(下载dl库)
       id: package
@@ -125,6 +123,8 @@ jobs:
         path: openwrt/bin
 
     - name: Organize files(整理文件)
+      env:
+        HOME_PATH: $PWD
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
