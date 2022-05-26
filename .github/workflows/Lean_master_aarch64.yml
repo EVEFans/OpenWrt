@@ -132,7 +132,7 @@ jobs:
         cp ${{ env.PATH }}/openwrt/.config ${{matrix.target}}.config
         #cp openwrt/.config openwrt/bin/targets/*/*/${{matrix.target}}.config
         #cp openwrt/build_dir/target-*/linux-*/linux-*/.config openwrt/bin/targets/*/*/${{matrix.target}}_kernel.config
-        cd openwrt/bin/targets/*/*
+        #cd openwrt/bin/targets/*/*
         rm -rf packages
         #mkdir firmware
         #mv -f openwrt/bin/targets/*/*/{*default*,*generic*,*config*,*sha256sums*} ./firmware/ 2>/dev/null || true
