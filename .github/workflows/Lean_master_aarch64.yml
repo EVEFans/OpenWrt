@@ -128,8 +128,9 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        cp openwrt/.config openwrt/bin/targets/*/*/${{matrix.target}}.config
-        cp openwrt/build_dir/target-*/linux-*/linux-*/.config openwrt/bin/targets/*/*/${{matrix.target}}_kernel.config
+        echo $PWD
+        #cp openwrt/.config openwrt/bin/targets/*/*/${{matrix.target}}.config
+        #cp openwrt/build_dir/target-*/linux-*/linux-*/.config openwrt/bin/targets/*/*/${{matrix.target}}_kernel.config
         cd openwrt/bin/targets/*/*
         rm -rf packages
         #mkdir firmware
