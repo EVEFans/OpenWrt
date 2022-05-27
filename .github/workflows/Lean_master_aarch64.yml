@@ -123,8 +123,6 @@ jobs:
         path: openwrt/bin
 
     - name: Organize files(整理文件)
-      env:
-        HOME_PATH: $PWD
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
