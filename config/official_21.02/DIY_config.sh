@@ -15,34 +15,47 @@ sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generat
 
 # Add 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adbyby-plus package/other/luci-app-adbyby-plus
-svn co https://github.com/kiddin9/openwrt-packages/trunk/adbyby package/depend/adbyby
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/other/luci-app-adguardhome
+svn co https://github.com/kiddin9/openwrt-packages/trunk/adbyby package/other/adbyby
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/other/luci-app-amlogic
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-arpbind package/other/luci-app-arpbind
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autoreboot package/other/luci-app-autoreboot
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman package/other/luci-app-diskman
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/other/luci-app-jd-dailybonus
 git clone https://github.com/destan19/OpenAppFilter.git package/other/luci-app-oaf
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ramfree package/other/luci-app-ramfree
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/other/luci-app-ssr-plus
+svn co https://github.com/kiddin9/openwrt-packages/trunk/naiveproxy package/other/naiveproxy
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocks-rust package/other/shadowsocks-rust
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocksr-libev package/other/shadowsocksr-libev
+svn co https://github.com/kiddin9/openwrt-packages/trunk/simple-obfs package/other/simple-obfs
+svn co https://github.com/kiddin9/openwrt-packages/trunk/tcping package/other/tcping
+svn co https://github.com/kiddin9/openwrt-packages/trunk/trojan package/other/trojan
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-plugin package/other/v2ray-plugin
+svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/other/redsocks2
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dns2socks package/other/dns2socks
+svn co https://github.com/kiddin9/openwrt-packages/trunk/microsocks package/other/microsocks
+svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/other/pdnsd-alt
+svn co https://github.com/kiddin9/openwrt-packages/trunk/ipt2socks package/other/ipt2socks
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-core package/other/v2ray-core
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-geodata package/other/v2ray-geodata
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2raya package/other/v2raya
+svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-core package/other/xray-core
+svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-plugin package/other/xray-plugin
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc package/other/luci-app-turboacc
-svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/depend/pdnsd-alt
-svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/depend/dnsforwarder
-svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/depend/shortcut-fe
-svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/depend/dnsproxy
-# 提示缺少ucode
-# git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/other/luci-app-unblockneteasemusic
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-unblockneteasemusic package/other/luci-app-unblockneteasemusic
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/other/luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb.git package/other/Maxminddb
-git clone https://github.com/fw876/helloworld  package/other/helloworld
-git clone https://github.com/xiaorouji/openwrt-passwall package/other/passwall
-svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/depend/redsocks2
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/other/dnsforwarder
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/other/shortcut-fe
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/other/dnsproxy
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-vsftpd package/other/luci-app-vsftpd
+svn co https://github.com/kiddin9/openwrt-packages/trunk/vsftpd-alt package/other/vsftpd-alt
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-vssr package/other/luci-app-vssr
+svn co https://github.com/kiddin9/openwrt-packages/trunk/lua-maxminddb package/other/lua-maxminddb
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-wrtbwmon package/other/luci-app-wrtbwmon
-svn co https://github.com/kiddin9/openwrt-packages/trunk/wrtbwmon package/depend/wrtbwmon
-git clone https://github.com/kiddin9/luci-theme-edge package/other/luci-theme-edge
+svn co https://github.com/kiddin9/openwrt-packages/trunk/wrtbwmon package/other/wrtbwmon
+svn co https://github.com/kiddin9/openwrt-packages/trunk/netdata package/other/netdata
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-netdata package/other/luci-app-netdata
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-theme-argon package/other/luci-theme-argon
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-argon-config package/other/luci-app-argon-config
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-theme-edge package/other/luci-theme-edge
 git clone https://github.com/kenzok8/luci-theme-ifit.git package/other/luci-theme-ifit
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/other/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/other/luci-app-argon-config
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
