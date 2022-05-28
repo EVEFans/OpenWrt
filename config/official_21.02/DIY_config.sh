@@ -22,25 +22,24 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autoreboot pac
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/other/luci-app-jd-dailybonus
 git clone https://github.com/destan19/OpenAppFilter.git package/other/luci-app-oaf
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ramfree package/other/luci-app-ramfree
-git clone https://github.com/fw876/helloworld package/other/helloworld
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/other/luci-app-ssr-plus
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/other/luci-app-ssr-plus
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/naiveproxy package/other/naiveproxy
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocks-rust package/other/shadowsocks-rust
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocksr-libev package/other/shadowsocksr-libev
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/simple-obfs package/other/simple-obfs
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/tcping package/other/tcping
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/trojan package/other/trojan
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-plugin package/other/v2ray-plugin
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/other/redsocks2
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/dns2socks package/other/dns2socks
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/microsocks package/other/microsocks
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/other/pdnsd-alt
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocks-rust package/other/shadowsocks-rust
+svn co https://github.com/kiddin9/openwrt-packages/trunk/shadowsocksr-libev package/other/shadowsocksr-libev
+svn co https://github.com/kiddin9/openwrt-packages/trunk/simple-obfs package/other/simple-obfs
+svn co https://github.com/kiddin9/openwrt-packages/trunk/tcping package/other/tcping
+svn co https://github.com/kiddin9/openwrt-packages/trunk/trojan package/other/trojan
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-plugin package/other/v2ray-plugin
+svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/other/redsocks2
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dns2socks package/other/dns2socks
+svn co https://github.com/kiddin9/openwrt-packages/trunk/microsocks package/other/microsocks
+svn co https://github.com/kiddin9/openwrt-packages/trunk/pdnsd-alt package/other/pdnsd-alt
 svn co https://github.com/kiddin9/openwrt-packages/trunk/ipt2socks package/other/ipt2socks
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-core package/other/v2ray-core
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-geodata package/other/v2ray-geodata
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/v2raya package/other/v2raya
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-core package/other/xray-core
-# svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-plugin package/other/xray-plugin
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-core package/other/v2ray-core
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-geodata package/other/v2ray-geodata
+svn co https://github.com/kiddin9/openwrt-packages/trunk/v2raya package/other/v2raya
+svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-core package/other/xray-core
+svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-plugin package/other/xray-plugin
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc package/other/luci-app-turboacc
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/other/dnsforwarder
 svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/other/shortcut-fe
@@ -57,6 +56,10 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-theme-argon packag
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-argon-config package/other/luci-app-argon-config
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-theme-edge package/other/luci-theme-edge
 git clone https://github.com/kenzok8/luci-theme-ifit.git package/other/luci-theme-ifit
+
+# svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-ssr-plus package/other/luci-app-ssr-plus
+svn co https://github.com/kenzok8/openwrt-packages/trunk/naiveproxy package/other/naiveproxy
+# git clone https://github.com/kenzok8/small.git package/other/small
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
