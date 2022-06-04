@@ -58,6 +58,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/v2ray-geodata package/o
 svn co https://github.com/kiddin9/openwrt-packages/trunk/v2raya package/other/v2raya
 svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-core package/other/xray-core
 svn co https://github.com/kiddin9/openwrt-packages/trunk/xray-plugin package/other/xray-plugin
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dns2tcp package/other/dns2tcp
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc package/other/luci-app-turboacc
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsforwarder package/other/dnsforwarder
 svn co https://github.com/kiddin9/openwrt-packages/trunk/shortcut-fe package/other/shortcut-fe
