@@ -19,6 +19,10 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 # 移除重复软件包
 rm -rf feeds/luci/themes/luci-theme-argon
 
+# 应用过滤, 京东签到
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+
 # 科学上网
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
@@ -56,9 +60,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # 晶晨宝盒
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
-# 京东签到, 应用过滤, 网速测试, ifit主题
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
-git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
+# 网速测试, ifit主题
 git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone https://github.com/kenzok8/luci-theme-ifit.git package/luci-theme-ifit
 
