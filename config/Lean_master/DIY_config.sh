@@ -13,6 +13,9 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.10.10.200/g' package/base-files/files/bin/config_generate
 
+# Autocore
+sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+
 # 移除重复软件包
 rm -rf feeds/luci/themes/luci-theme-argon
 
