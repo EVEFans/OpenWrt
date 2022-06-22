@@ -68,5 +68,12 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/other/
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-vssr package/other/luci-app-vssr
 svn co https://github.com/kiddin9/openwrt-packages/trunk/lua-maxminddb package/other/lua-maxminddb
 
+# 科学上网
+svn co https://github.com/immortalwrt/packages/trunk/net/dns2socks package/dns2socks
+svn co https://github.com/immortalwrt/packages/trunk/net/microsocks package/microsocks
+svn co https://github.com/immortalwrt/packages/trunk/net/ipt2socks package/ipt2socks
+svn co https://github.com/immortalwrt/packages/trunk/net/redsocks2 package/redsocks2
+svn co https://github.com/immortalwrt/packages/trunk/net/pdnsd-alt package/pdnsd-alt
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
